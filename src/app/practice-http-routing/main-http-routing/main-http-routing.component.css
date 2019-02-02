@@ -1,0 +1,17 @@
+.full_body{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.half_body.left_side{
+  border-right: 1px solid black;
+  padding: 10px;
+}
+
+.half_body.right_side{
+  border-left: 1px solid black;
+  padding: 10px;
+}
+
+

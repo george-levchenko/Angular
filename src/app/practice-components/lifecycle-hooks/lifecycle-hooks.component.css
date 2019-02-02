@@ -1,0 +1,35 @@
+.log_window{
+  width: 50%;
+  height: 200px;
+  margin: 70px auto;
+  background: #f0f0f0;
+  border-radius: 15px;
+  overflow-y: scroll;
+  padding: 20px;
+}
+
+h2{
+  font-size: 20px;
+  color: #646464;
+}
+
+.clear{
+  width: 100px;
+  height: 30px;
+  margin-top: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px black;
+  outline: none;
+  cursor: pointer;
+}
+
+.wrapper{
+  display: flex;
+  justify-content: space-around;
+}
+
+.input_field{
+  padding-top: 10px;
+  padding-left: 10px;
+}

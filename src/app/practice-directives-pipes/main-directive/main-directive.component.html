@@ -1,0 +1,75 @@
+
+<div class="full_body">
+
+  <div class="half_body left_side">
+      <h1> Directives Practice </h1>
+
+      <p [appHighlight]="color" defaultColor="yellow">
+        Highlight me!
+      </p>
+
+        <br>
+
+       <p appHighlight [appHighlight]="color" defaultColor="yellow">
+        Highlight me too!
+      </p>
+
+        <br>
+
+      <p appHighlight  defaultColor="yellow">
+        Highlight me, I'm default!
+      </p>
+
+        <br>
+
+       <p appHighlight>
+        Highlight me, I'm red!
+      </p>
+
+         <br>
+
+        <p appBold>
+          Bold me, dude, I wanna BOLD!
+        </p>
+
+           <br>
+        <p *appUnless="condition"> This paragraph is displayed because the condition is false xD. </p>
+           <br>
+
+       <button (click)="changeCondition()" >Change Condition</button>
+  </div>
+
+  <div class="half_body right_side">
+    <h1> Pipes Practice </h1>
+
+    <p> UppercasePipe: Elephant - {{'Elephant' | uppercase}}  </p>
+
+    <br>
+
+    <p> LowercasePipe: Mouse - {{'Mouse' | lowercase}}  </p>
+
+    <br>
+
+    <p> SlicePipe: Hello World! - {{'Hello World!' | slice:0:5}}  </p>
+    <p> SlicePipe: Hello World! - {{'Hello World!' | slice:6}}  </p>
+
+    <br>
+
+    <p> DatePipe: Today - {{today | date:'fullDate'}}  </p>
+    <p> DatePipe: Today - {{today | date:'MM/dd/yy'}}  </p>
+
+    <p> AsyncPipe: Yummy - {{yummy | async}}  </p>
+
+    <br>
+
+    <label>Enter Number:</label>
+    <input type="number" (keyup)="putNumber($event)"> <br>
+
+    <label>Enter Power:</label>
+    <input type="number" (keyup)="putPower($event)"> <br>
+
+    <p> {{pipeNumber}} in power {{pipePower}} = {{pipeNumber | exponential: pipePower}}  </p>
+
+  </div>
+
+</div>

@@ -1,0 +1,67 @@
+<div class="full_body">
+
+  <div class="full_form">
+
+    <h1>Student's Form</h1>
+
+    <form [formGroup]="studentsForm" (ngSubmit)="onSubmit()">
+
+      <div class="input_group">
+        <label for="firstName">First Name</label> <br>
+        <input type="text" class="input_field required" id="firstName"
+               formControlName="firstName">
+      </div>
+
+      <div class="input_group">
+        <label for="lastName">Last Name</label> <br>
+        <input type="text" class="input_field required" id="lastName"
+               formControlName="lastName">
+      </div>
+
+      <div class="input_group">
+        <label for="age"> Age </label> <br>
+        <input type="text" class="input_field" id="age"
+               formControlName="age">
+      </div>
+
+      <div class="input_group">
+        <label for="educationYear">Educational Year</label> <br>
+        <select class="input_field required" id="educationYear"
+                formControlName="educationYear">
+          <option *ngFor="let year of educationYearArray" [value]="year"> {{year}} </option>
+        </select>
+      </div>
+
+      <div class="input_group" formArrayName="numbers">
+        <label> Telephone Number: </label> <br>
+        <div *ngFor="let number of numbers.controls; let i=index">
+            <input  class="input_field" type="text" [formControlName]="i">
+        </div>
+        <button class="morePhones" type="button" (click)="addNumbers()">Add Number</button>
+      </div>
+
+      <div>
+        <button type="button" class="newButton" (click)="newStudent()">New Student</button>
+        <button type="button" class="newButton" (click)="updateName()">George!</button>
+      </div>
+
+      <div>
+          <button type="submit" class="submit" [disabled]="!studentsForm.valid">Submit</button>
+      </div>
+
+    </form>
+  </div>
+
+  <div class="log_window" *ngIf="messageService.messages.length">
+
+    <div class="wrapper">
+      <h2>Messages:</h2>
+      <button class="clear" (click)="messageService.clear()">clear</button>
+    </div>
+
+    <div *ngFor='let message of messageService.messages'>  {{message}} </div>
+
+  </div>
+
+</div>
+

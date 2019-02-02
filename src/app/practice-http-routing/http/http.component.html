@@ -1,0 +1,20 @@
+
+<div class="full_body">
+  <h1> HTTP Practice </h1>
+
+  <p>Receive: {{jsonData}}</p>
+  <button (click)="showConfig()" >Get Config</button>
+
+  <p>Receive: {{contents}}</p>
+  <button (click)="showTextFile()" >Get Text</button>
+
+  <p>Adding New {{newconfigTemplate}}</p>
+  <button (click)="pushObject(newconfig)" >Add</button>
+
+  <p>Delete {{somevalue}}</p>
+  <button (click)="deleteObjectButton()" >Delete</button>
+
+  <p>Put {{newconfigTemplate}}</p>
+  <button (click)="updateObjectButton()" >Put</button>
+
+</div>

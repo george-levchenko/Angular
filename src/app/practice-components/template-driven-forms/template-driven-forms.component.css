@@ -1,0 +1,65 @@
+.full_body{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.full_form{
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.input_group{
+  margin-top: 10px;
+}
+
+.input_field{
+  width: 250px;
+  height: 30px;
+  border-radius: 5px;
+}
+
+.newButton, .submit{
+  width: 150px;
+  height: 30px;
+  margin: 15px;
+  border-radius: 5px;
+}
+
+.danger{
+  background: red;
+  width: 250px;
+  margin: 0 auto;
+}
+
+.log_window{
+  width: 70%;
+  height: 200px;
+  margin: 70px auto;
+  background: #f0f0f0;
+  border-radius: 15px;
+  overflow-y: scroll;
+  padding: 20px;
+}
+
+h2{
+  font-size: 20px;
+  color: #646464;
+}
+
+.clear{
+  width: 100px;
+  height: 30px;
+  margin-top: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px black;
+  outline: none;
+  cursor: pointer;
+}
+
+.wrapper{
+  display: flex;
+  justify-content: space-around;
+}

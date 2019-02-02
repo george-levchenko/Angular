@@ -1,0 +1,27 @@
+<div class="full_body">
+  <h1> Routing Practice </h1>
+
+  <div class=" button_row ">
+<ul>
+  <li> <a routerLink="/http-routing/practice-link" routerLinkActive="active"
+          [routerLinkActiveOptions] = {exact:true} >Practice Link</a></li>
+
+  <li> <a [routerLink]="['/http-routing/practice-id', id]" routerLinkActive="active"
+          [routerLinkActiveOptions] = {exact:true}>Practice Id</a></li>
+
+  <li> <a [routerLink]="['/http-routing/practice-id', id]"
+          [queryParams]="{'product': product, 'price': price}"
+          routerLinkActive="active">Practice Id and Query</a></li>
+</ul>
+  </div>
+
+  <div class=" button_row ">
+    <button (click)="goPracticeLink()" >Practice Link</button>
+    <button (click)="goPracticeId()" >Practice Id</button>
+    <button (click)="goPracticeQuery()" >Practice Id and Query</button>
+  </div>
+
+  <div class="some_page">
+    <router-outlet></router-outlet>
+  </div>
+</div>

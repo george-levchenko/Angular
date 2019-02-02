@@ -1,0 +1,93 @@
+<div class="full_body">
+
+  <div class="input_field">
+    <label for="input_1"> Interpolation: {{ input_1.value }} </label> <br>
+    <input type="text" id="input_1" placeholder="Write something" #input_1 (keyup)="0">
+  </div>
+
+  <div class="input_field">
+    <label for="input_2"> Pipe to uppercase: {{ input_2.value | uppercase }} </label> <br>
+    <input type="text" id="input_2" placeholder="Write something" #input_2 (keyup)="0">
+  </div>
+
+  <div class="input_field">
+    <label for="input_3"> Property binding (placeholder) </label> <br>
+    <input type="text" id="input_3" [placeholder]="input_value" (keyup)="0">
+  </div>
+
+  <div class="input_field">
+    <label> Class Binding(color) </label> <br>
+    <input type="text" [class.active]="question_class" (keyup)="0">
+  </div>
+
+  <div class="input_field">
+    <label> Style Binding (width) </label> <br>
+    <input type="text" [style.width.px]="mySize" (keyup)="0">
+  </div>
+
+  <div class="input_field">
+    <label> Attribute Binding (title) </label> <br>
+    <input type="text" [attr.title]="question_attr" (keyup)="0">
+  </div>
+
+  <div class="input_field">
+    <label> Button Event Binding </label> <br>
+    <button (click)="getClicks()">Click!</button>
+    {{clicks}}
+  </div>
+
+  <div class="input_field">
+    <label> Input Event Binding </label> <br>
+  <input [value]="input_event"
+         (input)="takeValue($event)" > <br>
+    {{input_event}}
+  </div>
+
+  <div class="input_field">
+    <label> ngModel {{input_variable}} </label> <br>
+    <input [(ngModel)]="input_variable">
+  </div>
+
+  <div class="input_field">
+    <label> ngClass </label> <br>
+    <button [ngClass]="classes" (click)="changeClass()">Classes</button>
+  </div>
+
+  <div class="input_field">
+    <label> ngStyle </label> <br>
+    <button [ngStyle]="styles" (click)="changeStyles()">Styles</button>
+  </div>
+
+  <div class="input_field">
+    <label> *ngIf </label> <br>
+    <div *ngIf="hiddenVariable1">Wow! {{hiddenVariable1}}</div>
+    <button  (click)="hideVariable1()">Display</button>
+  </div>
+
+  <div class="input_field">
+    <label> *ngFor </label> <br>
+    <div *ngFor="let human of crowd; let i=index">{{i+1}}-{{human}}</div>
+    <button  (click)="showList()">Show List</button>
+  </div>
+
+  <div class="input_field">
+    <label> [ngSwitch] </label> <br>
+    <div [ngSwitch]="switch_variable">
+    <div *ngSwitchCase="1"> {{'Number1'}} </div>
+    <div *ngSwitchCase="2"> {{'Number2'}} </div>
+    <div *ngSwitchCase="3"> {{'Number3'}} </div>
+    <div *ngSwitchDefault> {{'Who knows...'}} </div>
+    </div>
+    <button  (click)="switchWay(1)">Show 1</button>
+    <button  (click)="switchWay(2)">Show 2</button>
+    <button  (click)="switchWay(3)">Show 3</button>
+  </div>
+
+  <div class="input_field">
+    <label> *ngIf + ng-container </label> <br>
+    <ng-container *ngIf="hiddenVariable2"> Wow! {{hiddenVariable2}} </ng-container>
+    <button  (click)="hideVariable2()">Display</button>
+  </div>
+
+</div>
+

@@ -1,0 +1,60 @@
+
+<div class="full_body">
+
+    <div class="window">
+      <h1> Parent Component </h1>
+
+      <p> Some Input Variable: {{inputValue}} </p>
+      <p> Output Clicks from Child: {{clicks}} </p>
+
+      <br>
+
+      <p>Clicks for Variable Component:</p>
+      <button (click)="variable.moreClicks()">Click++</button>
+      <button (click)="variable.lessClicks()">Click--</button>
+
+      <br> <br>
+
+      <p>Clicks for ViewChild Component:</p>
+      <button (click)="moreClicks()">Click++</button>
+      <button (click)="lessClicks()">Click--</button>
+      <p>Clicks on variable child: {{viewChild.clicks}}</p>
+
+      <br>
+
+
+      <label for="input_observable">Write value for Observable:</label>
+      <input type="text" id="input_observable" #input (keyup)="throwValue(input.value)">
+
+    </div>
+
+    <div class="window">
+        <app-input-output [inputVariable] = inputValue
+                          [arrayValue] = inputArray
+                           (outputVariable) = getClicks($event)>
+      </app-input-output>
+    </div>
+    <div class="window">
+        <app-variable #variable></app-variable>
+    </div>
+    <div class="window">
+        <app-ngcontent>
+          <p>This Message inserted from Parent template {{inputValue}}</p>
+        </app-ngcontent>
+    </div>
+    <div class="window">
+        <app-viewchild></app-viewchild>
+    </div>
+    <div class="window">
+        <app-contentchild>
+          <p #headerContent>This Message inserted from Parent template {{inputValue}}</p>
+        </app-contentchild>
+    </div>
+    <div class="window">
+        <app-constructor-relation></app-constructor-relation>
+    </div>
+    <div class="window">
+        <app-service-relation></app-service-relation>
+    </div>
+
+  </div>

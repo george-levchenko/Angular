@@ -1,0 +1,20 @@
+
+<div class="test_buttons">
+  <div class="input_field">
+    <label for=""> Change Some Value {{input_value1}} </label> <br>
+    <input [(ngModel)]="input_value1">
+  </div>
+
+</div>
+
+
+<div class="log_window" *ngIf="messageService.messages.length">
+
+  <div class="wrapper">
+    <h2>Messages:</h2>
+    <button class="clear" (click)="messageService.clear()">clear</button>
+  </div>
+
+  <div *ngFor='let message of messageService.messages'>  {{message}} </div>
+
+</div>
