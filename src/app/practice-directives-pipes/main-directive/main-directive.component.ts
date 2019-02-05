@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {interval, Observable, timer} from 'rxjs';
 import {map, switchMap} from 'rxjs/operators';
+import {ExponentialPipe} from '../pipe-exponential/exponential.pipe';
 
 @Component({
   selector: 'app-main-directive',
@@ -19,7 +20,9 @@ export class MainDirectiveComponent implements OnInit {
   pipeNumber = 1;
   pipePower = 1;
 
-  constructor() { }
+  constructor( private expPipe: ExponentialPipe ) { }
+
+  pipeValue = this.expPipe.transform(2, '10');
 
 ngOnInit(): void {
 
@@ -45,5 +48,4 @@ ngOnInit(): void {
   putPower(event) {
     this.pipePower = event.target.value;
   }
-
 }

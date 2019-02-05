@@ -252,15 +252,16 @@ export class MainObservablesComponent extends  MyOnDestroy implements OnInit {
   onFifteenthButtonClick() {
 
     this.observableService.getOf().pipe(
-      tap( val => this.messageService.add(`Observables #10 Received value!`))
+      tap( val => this.messageService.add(`Observables #15 Received value!`))
     ).subscribe(
-      (value) => this.messageService.add(`Observables #10 value: ${value}`),
-      (err) => this.messageService.add(`Observables #10 catch error: ${err}`),
+      (value) => this.messageService.add(`Observables #15 value: ${value}`),
+      (err) => this.messageService.add(`Observables #15 catch error: ${err}`),
       () => {
-        this.messageService.add(`Observables #10 : Test finished Successfully`);
+        this.messageService.add(`Observables #15 : Test finished Successfully`);
         this.messageService.add(`-------------------------------------------`);
       }
     );
   }
+
 
 }

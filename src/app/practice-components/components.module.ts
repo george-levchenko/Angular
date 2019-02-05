@@ -26,6 +26,14 @@ import { MainComponentComponent } from './main-component/main-component.componen
     FormsModule,
     ComponentsRoutingModule,
     ReactiveFormsModule
+  ],
+  exports: [
+    MainComponentComponent,
+    SyntaxComponent,
+    LifecycleHooksComponent,
+    TemplateDrivenFormsComponent,
+    ReactiveFormsComponent,
+    DynamicFormsComponent
   ]
 })
 export class ComponentsModule { }

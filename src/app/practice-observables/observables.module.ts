@@ -9,6 +9,9 @@ import { MainObservablesComponent } from './main-observables/main-observables.co
   imports: [
     CommonModule,
     ObservablesRoutingModule
+  ],
+  exports: [
+    MainObservablesComponent
   ]
 })
 export class ObservablesModule { }

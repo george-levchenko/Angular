@@ -8,6 +8,8 @@ import {MainHttpRoutingComponent} from './main-http-routing/main-http-routing.co
 import {HttpClientModule} from '@angular/common/http';
 import {PracticeLinkComponent} from './practice-link/practice-link.component';
 import {PracticeIdComponent} from './practice-id/practice-id.component';
+import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
+import {InMemoryDataService} from '../practice-services/in-memory/in-memory-data.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,12 @@ import {PracticeIdComponent} from './practice-id/practice-id.component';
   imports: [
     CommonModule,
     HttpRoutingRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forFeature(
+      InMemoryDataService, { dataEncapsulation: false } )
+  ],
+  exports: [
+    MainHttpRoutingComponent
   ]
 })
 export class HttpRoutingModule { }

@@ -2,19 +2,45 @@
 <div class="full_body">
   <h1> HTTP Practice </h1>
 
-  <p>Receive: {{jsonData}}</p>
-  <button (click)="showConfig()" >Get Config</button>
+  <div class="button_group">
+    <div>
+      <p>Received: {{jsonData}}</p>
+      <button (click)="showConfig()" >Get Config</button>
+    </div>
 
-  <p>Receive: {{contents}}</p>
-  <button (click)="showTextFile()" >Get Text</button>
+    <div>
+      <p>Received: {{contents}}</p>
+      <button (click)="showTextFile()" >Get Text</button>
+    </div>
+  </div>
 
-  <p>Adding New {{newconfigTemplate}}</p>
-  <button (click)="pushObject(newconfig)" >Add</button>
+  <div class="button_group">
+    <div>
+      <p>Got Workers: {{workers}}</p>
+      <button (click)="showWorkers()">Get Workers</button>
+    </div>
 
-  <p>Delete {{somevalue}}</p>
-  <button (click)="deleteObjectButton()" >Delete</button>
+    <div>
+      <p>Got Worker (ID 5): {{worker}}</p>
+      <button (click)="showWorker()">Get Worker</button>
+    </div>
+  </div>
 
-  <p>Put {{newconfigTemplate}}</p>
-  <button (click)="updateObjectButton()" >Put</button>
+  <div class="button_group_2">
+    <div>
+      <p>Push New Worker (ID 11)</p>
+      <button (click)="pushWorker()">New Worker</button>
+    </div>
+
+    <div>
+      <p>Update Worker (ID 7)</p>
+      <button (click)="updateWorkerButton()">Update Worker</button>
+    </div>
+
+    <div>
+      <p>Delete Worker (ID 3)</p>
+      <button (click)="deleteObjectButton()">Delete Worker</button>
+    </div>
+  </div>
 
 </div>

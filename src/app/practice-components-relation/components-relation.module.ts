@@ -13,18 +13,21 @@ import { ServiceRelationComponent } from './service-relation/service-relation.co
 
 @NgModule({
   declarations: [
-                  MainComponentRelationComponent,
-                  InputOutputComponent,
-                  VariableComponent,
-                  NgcontentComponent,
-                  ViewchildComponent,
-                  ContentchildComponent,
-                  ConstructorRelationComponent,
-                  ServiceRelationComponent
+      MainComponentRelationComponent,
+      InputOutputComponent,
+      VariableComponent,
+      NgcontentComponent,
+      ViewchildComponent,
+      ContentchildComponent,
+      ConstructorRelationComponent,
+      ServiceRelationComponent
   ],
   imports: [
     CommonModule,
     ComponentsRelationRoutingModule
+  ],
+  exports: [
+    MainComponentRelationComponent
   ]
 })
 export class ComponentsRelationModule { }

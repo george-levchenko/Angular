@@ -3,8 +3,9 @@ import {
   OnChanges, OnDestroy,
   DoCheck, AfterContentInit,
   AfterContentChecked,
-  AfterViewChecked, AfterViewInit
+  AfterViewChecked, AfterViewInit, SimpleChanges, Input
 } from '@angular/core';
+
 import { MessageService } from '../../practice-services/message-service/message.service';
 
 @Component({
@@ -15,15 +16,19 @@ import { MessageService } from '../../practice-services/message-service/message.
 export class LifecycleHooksComponent implements OnInit, OnDestroy,
                                                 OnChanges, DoCheck,
                                                 AfterContentInit, AfterViewInit,
-                                                AfterContentChecked, AfterViewChecked
-{
+                                                AfterContentChecked, AfterViewChecked {
+
+  @Input() testValue?: any;
 
   input_value1 = '';
 
   constructor(private messageService: MessageService) { }
 
-  ngOnChanges() {
-    this.messageService.add('OnChanges event - done!');
+  ngOnChanges(changes: SimpleChanges) {
+
+      if (changes.testValue && !changes.testValue.currentValue) {
+        this.messageService.add(changes.testValue.currentValue);
+    }
   }
 
   ngOnInit() {

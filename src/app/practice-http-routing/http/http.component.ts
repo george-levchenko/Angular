@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {catchError, retry, tap} from 'rxjs/operators';
 import {Observable, throwError} from 'rxjs';
 
@@ -7,6 +7,15 @@ export interface Config {
   heroesUrl: string;
   textfile: string;
 }
+
+export interface Worker {
+  id: number;
+  name: string;
+}
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Component({
   selector: 'app-http',
@@ -17,16 +26,16 @@ export interface Config {
 export class HttpComponent {
 
   config: Config;
-  configArray: any[];
   jsonData: string;
   contents: string;
   configUrl = 'assets/config.json';
+  private workersUrl = 'api/workers';  // URL to web api
+  workers: string;
+  worker: string;
+  newWorker = {id: 11, name: 'Vata'};
+  updatedWorker = {id: 7, name: 'Boss'};
+  deletedWorker = {id: 3, name: 'Alex'};
 
-  newconfig: Config = {
-    heroesUrl: '#1',
-    textfile: 'someVata'
-  };
-  newconfigTemplate = JSON.stringify(this.newconfig);
 
   constructor(private http: HttpClient) { }
 
@@ -71,6 +80,7 @@ export class HttpComponent {
       'Something bad happened; please try again later.');     // return an observable with a user-facing error message
   }
 
+  // --------------------------------------------------------------
 
   getConfig() {   // Getter JSON variant #2
     return this.http.get<Config>(this.configUrl).pipe(
@@ -82,10 +92,12 @@ export class HttpComponent {
   showConfig() {
     this.getConfig()
       .subscribe(
-        (data: Config) => this.config = { ...data } // clone the data object, using its known Config shape
-      );
+        (data: Config) => this.config = { ...data } ); // clone the data object, using its known Config shape
+
     this.jsonData = JSON.stringify(this.config);
   }
+
+  // --------------------------------------------------------------
 
   getTextFile(filename: string) {    // Getter not JSON
     return this.http.get(filename, {responseType: 'text'}).pipe(
@@ -99,39 +111,67 @@ export class HttpComponent {
       .subscribe(results => this.contents = results);
   }
 
-  addObject (config: Config): Observable<Config> {
-    return this.http.post<Config>(this.configUrl, config)
+  // --------------------------------------------------------------
+
+  getWorkers(): Observable<Worker[]> {
+    return this.http.get<Worker[]>(this.workersUrl);
+  }
+
+  showWorkers() {
+    this.getWorkers().subscribe(
+      val => this.workers = JSON.stringify(val)
+    );
+  }
+
+  // --------------------------------------------------------------
+
+  getWorker(id: number): Observable<Worker> {
+    const url = `${this.workersUrl}/${id}`;
+    return this.http.get<Worker>(url);
+  }
+
+  showWorker() {
+    this.getWorker(5).subscribe(
+      obj => this.worker = obj.name);
+  }
+
+  // --------------------------------------------------------------
+
+  addWorker (worker: Worker): Observable<Worker> {
+    return this.http.post<Worker>(this.workersUrl, worker, httpOptions)
       .pipe(
         tap(val => console.log(val)),
         catchError(this.handleError)
       );
   }
 
-  pushObject() {
-    this.addObject(this.newconfig)
+  pushWorker() {
+    this.addWorker(this.newWorker)
       .subscribe();
-    // newconfig => this.configArray.push(newconfig)
   }
 
-   deleteObject(): Observable<{}> {
+  // --------------------------------------------------------------
 
-     // const url = `${this.heroesUrl}/${id}`; // DELETE api/heroes/42
-
-     return this.http.delete(this.configUrl)
-       .pipe( catchError(this.handleError) );
-   }
-   deleteObjectButton() {
-     // this.deleteObject.subscribe();
-   }
-
-  updateObject (newconfig: Config): Observable<Config> {
-    return this.http.put<Config>(this.configUrl, newconfig)
+  updateWorker (worker: Worker): Observable<Worker> {
+    const url = `${this.workersUrl}/${worker.id}`;
+    return this.http.put<Worker>(url, worker)
       .pipe(
         catchError(this.handleError)
       );
   }
-    updateObjectButton() {
-      // this.updateObject.subscribe();
+    updateWorkerButton() {
+      this.updateWorker(this.updatedWorker).subscribe();
     }
+
+   deleteObject(worker: Worker): Observable<{}> {
+
+     const url = `${this.workersUrl}/${worker.id}`;
+
+     return this.http.delete(url).pipe(
+       catchError(this.handleError) );
+   }
+   deleteObjectButton() {
+     this.deleteObject(this.deletedWorker).subscribe();
+   }
 
 }

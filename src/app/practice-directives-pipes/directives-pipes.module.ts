@@ -10,10 +10,24 @@ import {ExponentialPipe} from './pipe-exponential/exponential.pipe';
 
 
 @NgModule({
-  declarations: [MainDirectiveComponent, HighlightDirective, BoldDirective, UnlessDirective, ExponentialPipe],
+  declarations: [
+    MainDirectiveComponent,
+    HighlightDirective,
+    BoldDirective,
+    UnlessDirective,
+    ExponentialPipe
+  ],
   imports: [
     CommonModule,
     DirectivesPipesRoutingModule
+  ],
+  providers: [ExponentialPipe],
+  exports: [
+    MainDirectiveComponent,
+    HighlightDirective,
+    BoldDirective,
+    UnlessDirective,
+    ExponentialPipe
   ]
 })
 
