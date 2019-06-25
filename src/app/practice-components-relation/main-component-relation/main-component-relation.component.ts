@@ -10,7 +10,7 @@ import {ComponentRelationService} from '../../practice-services/components-relat
 })
 export class MainComponentRelationComponent {
 
-  @ViewChild(ViewchildComponent)
+  @ViewChild(ViewchildComponent, { static: false })
   private viewChild: ViewchildComponent;
 
   public clicks = 0;

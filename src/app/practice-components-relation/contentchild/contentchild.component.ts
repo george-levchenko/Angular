@@ -7,7 +7,7 @@ import {Component, ContentChild, ElementRef} from '@angular/core';
 })
 export class ContentchildComponent {
 
-  @ContentChild('headerContent')
+  @ContentChild('headerContent', {static: false})
   header: ElementRef;
 
   constructor() { }
