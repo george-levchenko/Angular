@@ -1,6 +1,6 @@
-import {Component, ViewChild} from '@angular/core';
-import {ViewchildComponent} from '../viewchild/viewchild.component';
-import {ComponentRelationService} from '../../practice-services/components-relation-service/component-relation.service';
+import { Component, ViewChild } from '@angular/core';
+import { ViewchildComponent } from '../viewchild/viewchild.component';
+import { ComponentRelationService } from '../../practice-services/components-relation-service/component-relation.service';
 
 
 @Component({
@@ -10,7 +10,7 @@ import {ComponentRelationService} from '../../practice-services/components-relat
 })
 export class MainComponentRelationComponent {
 
-  @ViewChild(ViewchildComponent, { static: false })
+  @ViewChild(ViewchildComponent, { static: true })
   private viewChild: ViewchildComponent;
 
   public clicks = 0;

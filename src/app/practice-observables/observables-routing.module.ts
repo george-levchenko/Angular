@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {MainObservablesComponent} from './main-observables/main-observables.component';
+import { MainObservablesComponent } from './main-observables/main-observables.component';
 
 const routes: Routes = [
   { path: '', component: MainObservablesComponent}
