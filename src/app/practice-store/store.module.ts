@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ObservablesRoutingModule } from './observables-routing.module';
-import { MainObservablesComponent } from './main-observables/main-observables.component';
+import { StoreRoutingModule } from '@app/practice-store/store-routing.module';
+import { MainStoreComponent } from '@app/practice-store/main-store-component/main-store.component';
 
 @NgModule({
-  declarations: [MainObservablesComponent],
+  declarations: [MainStoreComponent],
   imports: [
     CommonModule,
-    ObservablesRoutingModule
+    StoreRoutingModule
   ],
   exports: [
-    MainObservablesComponent
+    MainStoreComponent
   ]
 })
-export class ObservablesModule { }
+export class StoreModule { }

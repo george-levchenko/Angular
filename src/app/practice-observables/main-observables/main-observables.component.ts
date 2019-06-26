@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MessageService} from '../../practice-services/message-service/message.service';
+import { MessageService } from '@app/practice-services/message-service/message.service';
 import {
   debounceTime, delay,
   distinctUntilChanged,
@@ -13,9 +13,9 @@ import {
   take,
   takeUntil, tap, withLatestFrom
 } from 'rxjs/operators';
-import {combineLatest, concat, fromEvent, interval, merge, observable, of, pipe, timer} from 'rxjs';
-import {MyOnDestroy} from '../../practice-services/my-on-destroy';
-import {ObservableFactoryService} from '../../practice-services/observable-factory/observable-factory.service';
+import { combineLatest, concat, fromEvent, interval, merge, observable, of, pipe, timer} from 'rxjs';
+import { MyOnDestroy } from '@app/practice-services/my-on-destroy';
+import { ObservableFactoryService } from '@app/practice-services/observable-factory/observable-factory.service';
 
 @Component({
   selector: 'app-main-observables',
@@ -33,10 +33,10 @@ export class MainObservablesComponent extends  MyOnDestroy implements OnInit {
     this.observableService.getSubject().pipe(
       takeUntil(this.onDestroy$)
     ).subscribe(
-      (value) => this.messageService.add(`Observables #3 value: ${value}`),
-      (err) => this.messageService.add(`Observables #3 catch error: ${err}`),
+      (value) => this.messageService.add(`Observables on Subject value: ${value}`),
+      (err) => this.messageService.add(`Observables on Subject catch error: ${err}`),
       () => {
-        this.messageService.add(`Observables #3 : Test finished Successfully`);
+        this.messageService.add(`Observables on Subject : Test finished Successfully`);
         this.messageService.add(`-------------------------------------------`);
       }
     );

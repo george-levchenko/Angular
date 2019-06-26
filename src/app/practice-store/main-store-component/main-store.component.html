@@ -12,19 +12,9 @@
     </div>
 
     <div class="button_box">
-      <button class="button" (click)="onSixthButtonClick()"> map </button>
-      <button class="button" (click)="onSeventhButtonClick()"> filter </button>
-      <button class="button" (click)="onEightsButtonClick()">  pluck </button>
-      <button class="button" (click)="onNinthButtonClick()">  skipUntil </button>
-      <button class="button" (click)="onTenthButtonClick()">  mapTo </button>
     </div>
 
     <div class="button_box">
-      <button class="button" (click)="onEleventhButtonClick()"> distinctUntilChange </button>
-      <button class="button" id="button_12" (click)="onTwelvethButtonClick()"> debounceTime </button>
-      <button class="button" (click)="onThirteenthButtonClick()">  combineLatest </button>
-      <button class="button" (click)="onFourteenthButtonClick()">  withLatestFrom </button>
-      <button class="button" (click)="onFifteenthButtonClick()">  tap </button>
     </div>
 
   </div>
@@ -36,7 +26,7 @@
       <button class="clear" (click)="messageService.clear()">clear</button>
     </div>
 
-    <div *ngFor='let message of messageService.messages'>  {{message}} </div>
+    <div *ngFor='let message of messageService.messages'> {{message}} </div>
 
   </div>
 

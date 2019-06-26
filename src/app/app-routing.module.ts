@@ -11,7 +11,9 @@ const routes: Routes = [
   { path: 'http-routing',
     loadChildren: () => import('./practice-http-routing/http-routing.module').then(m => m.HttpRoutingModule) },
   { path: 'observables',
-    loadChildren: () => import('./practice-observables/observables.module').then(m => m.ObservablesModule) }
+    loadChildren: () => import('./practice-observables/observables.module').then(m => m.ObservablesModule) },
+  { path: 'store',
+    loadChildren: () => import('./practice-store/store.module').then(m => m.StoreModule) }
 ];
 
 @NgModule({

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
-import {Worker} from '../../practice-http-routing/http/http.component';
+
+import { Worker } from '@app/practice-http-routing/http/http.component';
 
 @Injectable({
   providedIn: 'root'
@@ -22,13 +23,4 @@ export class InMemoryDataService implements InMemoryDbService {
     ];
     return {workers};
   }
-
-  // Overrides the genId method to ensure that a worker always has an id.
-  // If the workers array is empty,
-  // the method below returns the initial number (1).
-  // if the workers array is not empty, the method below returns the highest
-  // worker id + 1.
-  // genId(workers: Worker[]): number {
-  //   return workers.length > 0 ? Math.max(...workers.map(worker => worker.id)) + 1 : 1;
-  // }
 }
