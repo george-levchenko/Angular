@@ -1,0 +1,43 @@
+<div class="full_body">
+
+  <div class="button_window">
+    <h1>Observables Practice</h1>
+
+    <div class="button_box">
+      <button class="button" (click)="onFirstButtonClick()"> takeUntil (5s) </button>
+      <button class="button" (click)="onSecondButtonClick()"> switchMap (5 by 3) </button>
+      <button class="button" (click)="onThirdButtonClick()">  mergeMap (5 by 3) </button>
+      <button class="button" (click)="onFourthButtonClick()">  merge </button>
+      <button class="button" (click)="onFifthButtonClick()">  concat </button>
+    </div>
+
+    <div class="button_box">
+      <button class="button" (click)="onSixthButtonClick()"> map </button>
+      <button class="button" (click)="onSeventhButtonClick()"> filter </button>
+      <button class="button" (click)="onEightsButtonClick()">  pluck </button>
+      <button class="button" (click)="onNinthButtonClick()">  skipUntil </button>
+      <button class="button" (click)="onTenthButtonClick()">  mapTo </button>
+    </div>
+
+    <div class="button_box">
+      <button class="button" (click)="onEleventhButtonClick()"> distinctUntilChange </button>
+      <button class="button" id="button_12" (click)="onTwelvethButtonClick()"> debounceTime </button>
+      <button class="button" (click)="onThirteenthButtonClick()">  combineLatest </button>
+      <button class="button" (click)="onFourteenthButtonClick()">  withLatestFrom </button>
+      <button class="button" (click)="onFifteenthButtonClick()">  tap </button>
+    </div>
+
+  </div>
+
+  <div class="log_window" *ngIf="messageService.messages.length">
+
+    <div class="wrapper">
+      <h2>Messages:</h2>
+      <button class="clear" (click)="messageService.clear()">clear</button>
+    </div>
+
+    <div *ngFor='let message of messageService.messages'>  {{message}} </div>
+
+  </div>
+
+</div>
