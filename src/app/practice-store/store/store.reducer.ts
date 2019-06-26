@@ -18,7 +18,7 @@ export interface HeroList {
 
 export const initialStateHeroes: HeroList[] = [];
 
-export const heroListDictionary: HeroList[] = [
+export const customHeroListDictionary: HeroList[] = [
   {id: 11, name: 'Sorcerer', type: 'mag'},
   {id: 12, name: 'Necromancer', type: 'mag'},
   {id: 13, name: 'Spellhowler', type: 'mag'},
@@ -30,8 +30,8 @@ export const heroListDictionary: HeroList[] = [
 ];
 
 export const heroReducer = createReducer(initialStateHeroes,
-  on(getHeroes, state => ({...state, heroListDictionary})),
+  on(getHeroes, state => ([...state, customHeroListDictionary])),
   on(setHero, (state, payload) => ([...state, payload])),
-  on(changeHeroById, (state, payload) => ([...state, state.find(hero => hero.id === payload.id) payload])),
+  on(changeHeroById, (state, payload) => ([...state, payload])),
   on(clearHeroes, () => initialStateHeroes)
 );
