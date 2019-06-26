@@ -4,6 +4,12 @@
     <h1>Observables Practice</h1>
 
     <div class="button_box">
+      <button class="button" (click)="increment()"> + </button>
+      <button class="button" (click)="decrement()"> - </button>
+      <button class="button" (click)="reset()"> {{count$ | async}} </button>
+    </div>
+
+    <div class="button_box">
       <button class="button" (click)="onFirstButtonClick()"> takeUntil (5s) </button>
       <button class="button" (click)="onSecondButtonClick()"> switchMap (5 by 3) </button>
       <button class="button" (click)="onThirdButtonClick()">  mergeMap (5 by 3) </button>
